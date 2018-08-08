@@ -18,6 +18,21 @@ https://212.60.203.18:8080/gitub-webhook/
 https://dev.example.com/gitub-webhook/
 ```
 
+## Automated Testing
+
+Automated testing of the build is implemented with Mocha.
+If the script is defined in the _package.json_ as
+```json
+"scripts": {
+    "test": "mocha"
+  },
+```
+the testing process can be called by adding
+```sh
+npm test
+```
+to the _Execute shell_ step in the _Build_ section of the Jenkins configuration.
+
 
 
 ## Common Errors

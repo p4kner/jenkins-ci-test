@@ -1,0 +1,28 @@
+{
+  "name": "jenkins-ci-test",
+  "version": "1.0.0",
+  "description": "Test project for continuos integration with Jenkins.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p4kner/jenkins-ci-test.git"
+  },
+  "keywords": [
+    "jenkins",
+    "continouos",
+    "integration",
+    "ci"
+  ],
+  "author": "Peter Faulkner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/p4kner/jenkins-ci-test/issues"
+  },
+  "homepage": "https://github.com/p4kner/jenkins-ci-test#readme",
+  "dependencies": {
+    "ask-sdk": "^2.0.7"
+  }
+}

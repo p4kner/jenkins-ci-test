@@ -1,7 +1,7 @@
 # Jenkins Continuous Integration Test
 Testing continuous integration using Jenkins with node.js Amazon Alexa Skill.
 
-Jenkins is an automation server for tasks such as building, testing, and deploying software projects. Once Jenkins has been installed this project which inludes code for a simple Amazon Alexa endpoint can be used to demonstrate
+Jenkins is an automation server for tasks such as building, testing, and deploying software projects. Once Jenkins has been installed this project which includes code for a simple Amazon Alexa endpoint can be used to demonstrate
 
 * Obtaining project source code from Git repository
 * Automatically triggering build based on Github webhook or polling a repository for changes
@@ -42,6 +42,9 @@ Most of the configuration for Jenkins has to be performed in the Jenkins backend
 ### Plug-ins
 
 A lot of the desired functionality of Jenkins is achieved by utilising plug-ins.
+Jenkins plug-ins installed for for this example to work:
+1. GitHub plugin
+2. NodeJS Plugin 
 
 ### Jenkins Items
 

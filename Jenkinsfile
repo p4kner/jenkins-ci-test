@@ -2,11 +2,7 @@
 
 pipeline {
 
-    agent {
-        node {
-            label 'my-node-label'
-        }
-    }
+    agent any
 
     stages {
         stage('Build') {

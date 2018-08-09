@@ -17,6 +17,7 @@ Example Payload URLs:
 https://212.60.203.18:8080/gitub-webhook/
 https://dev.example.com/gitub-webhook/
 ```
+The Jenkins item can be configured to use this webhook in the _Build Triggers_ section by selecting the _GitHub hook trigger for GITScm polling_ option.
 
 ## Automated Testing
 

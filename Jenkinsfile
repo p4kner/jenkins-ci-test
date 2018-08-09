@@ -4,6 +4,7 @@ pipeline {
 
     agent {
         node {
+            label 'my-node-label'
         }
     }
 

@@ -45,6 +45,15 @@ A lot of the desired functionality of Jenkins is achieved by utilising plug-ins.
 
 ### Jenkins Items
 
+The item is the central feature of Jenkins for actually setting up an automated build.
+This is where the location of the source code, the build triggers, build triggers etc. can be configured.
+
+The sample project can be built and tested by adding a new build step and selecting the option _Execute shell_ in the _Build_ section of the item's configuration options. The shell commands covered in the Node.js Tasks section can be added here.
+```sh
+npm install
+npm test
+```
+
 ### Jenkins Pipeline
 
 Jenkins allows the creation of a pipeline item which performs tasks based off a script instead of directly specifying shell commands.

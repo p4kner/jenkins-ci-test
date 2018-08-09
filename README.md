@@ -1,9 +1,7 @@
 # Jenkins Continuous Integration Test
 Testing continuous integration using Jenkins with node.js Amazon Alexa Skill.
 
-
-
-Jenkins is an automation server for tasks such as building, testing, and deploying software projects. Once Jenkins has been installed this project which inludes code for a simple Amazon ALexa endpoint can be used to demonstrate 
+Jenkins is an automation server for tasks such as building, testing, and deploying software projects. Once Jenkins has been installed this project which inludes code for a simple Amazon Alexa endpoint can be used to demonstrate
 
 * Obtaining project source code from Git repository
 * Automatically triggering build based on Github webhook or polling a repository for changes
@@ -39,6 +37,12 @@ to the _Execute shell_ step in the _Build_ section of the Jenkins configuration.
 
 ## Configuring Jenkins
 
+Most of the configuration for Jenkins has to be performed in the Jenkins backend.
+
+### Plug-ins
+
+A lot of the desired functionality of Jenkins is achieved by utilising plug-ins.
+
 ### Jenkins Items
 
 ### Jenkins Pipeline
@@ -72,9 +76,37 @@ pipeline {
 ```
 When configuring the pipeline item in Jenkins select the _pipeline script from SCM_ option in the _Pipeline_ section and specify the matching path to the _Jenkinsfile_.
 
+### Github Authentication
+
+When accessing a private Github repository from Jenkins it is necessary to authenticate via SSH key.
+
+The following shell commands can be used to generate the ssh key for the email address of the Github user.
+Please make sure to leave file name and passwords blank as Jenkins doesn't enter a password.
+```sh
+sudo su
+whoami
+# root
+sudo su jenkins
+whoami
+# jenkins
+ssh-keygen -t rsa -b 4096 -C "sample@mail.com"
+# Github user email address. Leave filename and password blank.
+```
+Copy the public ssh key and paste it into the _SSH and GPG keys_ section of the Github _Personal settings_.
+```sh
+cd /var/lib/jenkins/.ssh
+vi id_rsa.pub
+# Open file to copy.
+```
+Verify access to Github over SSH which handily adds github.com to known hosts.
+```sh
+ssh -T git@github.com
+# The authenticity of host 'github.com (192.30.253.112)' can't be established...
+```
+
 ### Github Webhook
 
-It is desirable to have automated builds on new git pushes.
+It is desirable to trigger builds on new git pushes.
 One possibility for achieving this is using a github webhook which notifies Jenkins running on the server.
 The webhook can be created in the _settings_ section of the Github repository, where a _payload URL_ has to be specified.
 
@@ -85,8 +117,8 @@ https://<jenkins ip>:<jenkins port>/github-webhook/
 
 Example Payload URLs:
 ```
-https://212.60.203.18:8080/gitub-webhook/
-https://dev.example.com/gitub-webhook/
+https://212.60.203.18:8080/github-webhook/
+https://dev.example.com:8080/github-webhook/
 ```
 The Jenkins item can be configured to use this webhook in the _Build Triggers_ section by selecting the _GitHub hook trigger for GITScm polling_ option.
 
